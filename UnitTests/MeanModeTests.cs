@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MeanMode;
 
@@ -76,6 +76,28 @@ namespace UnitTests
         public void MeanMode6()
         {
             int[] numbers = { -3, -3, -3, 0, 0, 0, 3, 3, 3 };
+
+            Assert.IsFalse(MeanMode.Program.MeanMode(numbers));
+        }
+
+        [TestMethod]
+        public void MeanMode7()
+        {
+            int[] numbers = new int[900];
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                numbers[i] = 2;
+            }
+
+            numbers[0] = 4;
+            numbers[899] = 0;
+            Assert.IsTrue(MeanMode.Program.MeanMode(numbers));
+        }
+
+        [TestMethod]
+        public void MeanMode8()
+        {
+            int[] numbers = {0, 0, 0, 3, 3, 3, -3, -3, -3, };
 
             Assert.IsFalse(MeanMode.Program.MeanMode(numbers));
         }
